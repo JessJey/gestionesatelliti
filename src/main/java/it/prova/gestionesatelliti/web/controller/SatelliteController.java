@@ -92,5 +92,22 @@ public class SatelliteController {
 		return "redirect:/satellite";
 
 	}
+	
+	@GetMapping("/delete/{idSatellite}")
+	public String delete(@PathVariable(required = true) Long idSatellite, Model model) {
+		model.addAttribute("delete_satellite_attr", satelliteService.caricaSingoloElemento(idSatellite));
+		return "satellite/delete";
+	}
+
+	@GetMapping("/salvadelete/{idSatellite}")
+	public String salvadelete(@PathVariable(required = true) Long idSatellite, ModelMap model,
+			RedirectAttributes redirectAttrs) {
+
+		Satellite satDaRim = satelliteService.caricaSingoloElemento(idSatellite);
+		satelliteService.rimuovi(satDaRim);
+
+		redirectAttrs.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
+		return "redirect:/satellite";
+	}
 
 }

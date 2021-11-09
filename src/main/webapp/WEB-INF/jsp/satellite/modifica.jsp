@@ -98,18 +98,20 @@
 								</div>
 								
 								<div class="col-md-3">
-								<c:if test ="${modifica_satellite_attr.dataRientro == null }">
+								
 									<label for="stato" class="form-label">Stato <span class="text-danger">*</span></label>
 								    <spring:bind path="stato">
 									    <select class="form-select ${status.error ? 'is-invalid' : ''}" id="stato" name="stato" required>
 									    	<option value="" selected> - Selezionare - </option>
+									    	<c:if test ="${modifica_satellite_attr.dataRientro == null }">
 									    	<option value="IN_MOVIMENTO" ${modifica_satellite_attr.stato == 'IN_MOVIMENTO'?'selected':''}>IN MOVIMENTO</option>
 									      	<option value="FISSO" ${modifica_satellite_attr.stato == 'FISSO'?'selected':''}>FISSO</option>
+									      </c:if>
 									      	<option value="DISATTIVATO" ${modifica_satellite_attr.stato == 'DISATTIVATO'?'selected':''}>DISATTIVATO</option>
 								    	</select>
 								    </spring:bind>
 								    <form:errors  path="stato" cssClass="error_field" />
-								    </c:if>
+								    
 								</div>
 								
 								
