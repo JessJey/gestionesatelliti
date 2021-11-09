@@ -24,7 +24,7 @@ public class SatelliteServiceImpl implements SatelliteService {
 
 	@Autowired
 	private SatelliteRepository satelliteRepository;
-	
+
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -44,21 +44,21 @@ public class SatelliteServiceImpl implements SatelliteService {
 	@Override
 	@Transactional
 	public void aggiorna(Satellite satelliteInstance) {
-		satelliteRepository.save(satelliteInstance);		
+		satelliteRepository.save(satelliteInstance);
 	}
 
 	@Override
 	@Transactional
 	public void inserisciNuovo(Satellite satelliteInstance) {
 		satelliteRepository.save(satelliteInstance);
-		
+
 	}
 
 	@Override
 	@Transactional
 	public void rimuovi(Satellite satelliteInstance) {
 		satelliteRepository.delete(satelliteInstance);
-		
+
 	}
 
 	@Override
@@ -85,8 +85,8 @@ public class SatelliteServiceImpl implements SatelliteService {
 			whereClauses.add(" s.stato =:stato ");
 			paramaterMap.put("stato", example.getStato());
 		}
-		
-		queryBuilder.append(!whereClauses.isEmpty()?" and ":"");
+
+		queryBuilder.append(!whereClauses.isEmpty() ? " and " : "");
 		queryBuilder.append(StringUtils.join(whereClauses, " and "));
 		TypedQuery<Satellite> typedQuery = entityManager.createQuery(queryBuilder.toString(), Satellite.class);
 
@@ -102,8 +102,10 @@ public class SatelliteServiceImpl implements SatelliteService {
 	public List<Satellite> findByLanciatiPiu2anniNoDisatt() {
 		return satelliteRepository.findByDataLancioAndStatoNodisatt();
 	}
-	
-	
-	
-	
+
+	@Override
+	public List<Satellite> findAllDisattivatiMaNonRientrati(StatoSatellite stato) {
+		return satelliteRepository.findAllByStatoLikeAndDataRientroIsNull(stato);
+	}
+
 }

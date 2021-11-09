@@ -123,5 +123,12 @@ public class SatelliteController {
 		model.addAttribute("satellite_list_attribute", results);
 		return "satellite/list";
 	}
+	
+	@PostMapping("/searchdisattmanonrientrati")
+	public String searchdisattmanonrientrati(ModelMap model) {
+		List<Satellite> results = satelliteService.findAllDisattivatiMaNonRientrati(StatoSatellite.DISATTIVATO);
+		model.addAttribute("satellite_list_attribute", results);
+		return "satellite/list";
+	}
 
 }

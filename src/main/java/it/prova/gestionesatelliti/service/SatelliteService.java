@@ -22,4 +22,6 @@ public interface SatelliteService {
 	
 	public List<Satellite> findByLanciatiPiu2anniNoDisatt();
 	
+	public List<Satellite> findAllDisattivatiMaNonRientrati(StatoSatellite stato);
+	
 }

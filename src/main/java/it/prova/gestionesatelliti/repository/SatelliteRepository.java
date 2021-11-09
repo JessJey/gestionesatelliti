@@ -14,5 +14,5 @@ public interface SatelliteRepository extends CrudRepository<Satellite, Long> {
 	@Query("select s from Satellite s where s.dataLancio < '2019/11/09' and s.stato != 'DISATTIVATO'")
 	List<Satellite> findByDataLancioAndStatoNodisatt();
 	
-	
+	List<Satellite> findAllByStatoLikeAndDataRientroIsNull(StatoSatellite statoSatellite);
 }

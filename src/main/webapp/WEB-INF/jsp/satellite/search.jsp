@@ -107,8 +107,8 @@
  <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
-      <form method="post" action="${pageContext.request.contextPath}/satellite/searchdatalancionodisatt" class="row g-3" >
-	<h6 class="card-text"> Ricerca Satelliti lanciati da più di due anni ma non disattivati </h6>
+      <form method="post" action="${pageContext.request.contextPath}/satellite/searchdisattmanonrientrati" class="row g-3" >
+	<h6 class="card-text"> Ricerca Satelliti disattivati ma non ancora rientrati </h6>
 	<div class="col-12">
 	<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"> Cerca </button>
 	</div>
@@ -120,7 +120,7 @@
     <div class="card">
       <div class="card-body">
       <form method="post" action="${pageContext.request.contextPath}/satellite/searchdatalancionodisatt" class="row g-3" >
-	<h6 class="card-text"> Ricerca Satelliti disattivati ma non ancora rientrati </h6>
+	<h6 class="card-text"> Ricerca Satelliti rimasti in orbita 10 anni ma che in questo momento sono fissi </h6>
 	<div class="col-12">
 	<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"> Cerca </button>
 	</div>
