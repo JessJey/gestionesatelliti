@@ -1,6 +1,12 @@
 package it.prova.gestionesatelliti.web.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import javax.validation.Valid;
 
@@ -18,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import it.prova.gestionesatelliti.model.Satellite;
+import it.prova.gestionesatelliti.model.StatoSatellite;
 import it.prova.gestionesatelliti.service.SatelliteService;
 
 @Controller
@@ -108,6 +115,13 @@ public class SatelliteController {
 
 		redirectAttrs.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
 		return "redirect:/satellite";
+	}
+	
+	@PostMapping("/searchdatalancionodisatt")
+	public String searchdatalancionodisatt(ModelMap model) {
+		List<Satellite> results = satelliteService.findByLanciatiPiu2anniNoDisatt();
+		model.addAttribute("satellite_list_attribute", results);
+		return "satellite/list";
 	}
 
 }

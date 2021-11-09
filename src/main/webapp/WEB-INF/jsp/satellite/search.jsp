@@ -81,6 +81,58 @@
 				    </div>
 				<!-- end card -->
 				</div>		
+				
+				
+				<br>
+				<br>
+				 <div class='card'>
+				    <div class='card-header'>
+				        <h5>Cerca per...</h5> 
+				    </div>
+				    <div class='card-body'>
+							
+							<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+      <form method="post" action="${pageContext.request.contextPath}/satellite/searchdatalancionodisatt" class="row g-3" >
+	<h6 class="card-text"> Ricerca Satelliti lanciati da più di due anni ma non disattivati </h6>
+	<div class="col-12">
+	<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"> Cerca </button>
+	</div>
+	</form>
+      </div>
+    </div>
+  </div>
+ <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+      <form method="post" action="${pageContext.request.contextPath}/satellite/searchdatalancionodisatt" class="row g-3" >
+	<h6 class="card-text"> Ricerca Satelliti lanciati da più di due anni ma non disattivati </h6>
+	<div class="col-12">
+	<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"> Cerca </button>
+	</div>
+	</form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+      <form method="post" action="${pageContext.request.contextPath}/satellite/searchdatalancionodisatt" class="row g-3" >
+	<h6 class="card-text"> Ricerca Satelliti disattivati ma non ancora rientrati </h6>
+	<div class="col-12">
+	<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"> Cerca </button>
+	</div>
+	</form>
+      </div>
+    </div>
+  </div>			
+				    
+					<!-- end card-body -->			   
+				    </div>
+				<!-- end card -->
+				</div>		
 					  
 			    
 			  <!-- end container -->  

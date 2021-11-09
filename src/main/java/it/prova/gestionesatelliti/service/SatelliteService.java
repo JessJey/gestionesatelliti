@@ -1,8 +1,10 @@
 package it.prova.gestionesatelliti.service;
 
+import java.util.Date;
 import java.util.List;
 
 import it.prova.gestionesatelliti.model.Satellite;
+import it.prova.gestionesatelliti.model.StatoSatellite;
 
 public interface SatelliteService {
 
@@ -17,5 +19,7 @@ public interface SatelliteService {
 	public void rimuovi(Satellite satelliteInstance);
 	
 	public List<Satellite> findByExample(Satellite example);
+	
+	public List<Satellite> findByLanciatiPiu2anniNoDisatt();
 	
 }
