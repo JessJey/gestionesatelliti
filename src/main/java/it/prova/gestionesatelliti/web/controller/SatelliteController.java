@@ -130,5 +130,12 @@ public class SatelliteController {
 		model.addAttribute("satellite_list_attribute", results);
 		return "satellite/list";
 	}
+	
+	@PostMapping("/searchdieciorbitafisso")
+	public String searchdieciorbitafisso(ModelMap model) {
+		List<Satellite> results = satelliteService.findAllByStatoFisso();
+		model.addAttribute("satellite_list_attribute", results);
+		return "satellite/list";
+	}
 
 }

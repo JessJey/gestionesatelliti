@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -108,4 +109,10 @@ public class SatelliteServiceImpl implements SatelliteService {
 		return satelliteRepository.findAllByStatoLikeAndDataRientroIsNull(stato);
 	}
 
+	@Override
+	public List<Satellite> findAllByStatoFisso() {
+		Date date = new Date();
+		date.setYear(date.getYear()-10);
+		return satelliteRepository.findAllByDataLancioLessThanAndStatoEquals( date, StatoSatellite.FISSO);
+	}
 }

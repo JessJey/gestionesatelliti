@@ -24,4 +24,6 @@ public interface SatelliteService {
 	
 	public List<Satellite> findAllDisattivatiMaNonRientrati(StatoSatellite stato);
 	
+	public List<Satellite> findAllByStatoFisso();
+	
 }
