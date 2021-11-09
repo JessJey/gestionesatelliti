@@ -26,7 +26,7 @@ public class SatelliteController {
 
 	@Autowired
 	private SatelliteService satelliteService;
-	
+
 	@GetMapping
 	public ModelAndView listAll() {
 		ModelAndView mv = new ModelAndView();
@@ -35,7 +35,7 @@ public class SatelliteController {
 		mv.setViewName("satellite/list");
 		return mv;
 	}
-	
+
 	@GetMapping("/search")
 	public String search() {
 		return "satellite/search";
@@ -47,7 +47,7 @@ public class SatelliteController {
 		model.addAttribute("satellite_list_attribute", results);
 		return "satellite/list";
 	}
-	
+
 	@GetMapping("/insert")
 	public String create(Model model) {
 		model.addAttribute("insert_satellite_attr", new Satellite());
@@ -66,10 +66,31 @@ public class SatelliteController {
 		redirectAttrs.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
 		return "redirect:/satellite";
 	}
-	
+
 	@GetMapping("/show/{idSatellite}")
 	public String show(@PathVariable(required = true) Long idSatellite, Model model) {
 		model.addAttribute("show_satellite_attr", satelliteService.caricaSingoloElemento(idSatellite));
 		return "satellite/show";
 	}
+
+	@GetMapping("/modifica/{idSatellite}")
+	public String modifica(@PathVariable(required = true) Long idSatellite, Model model) {
+		model.addAttribute("modifica_satellite_attr", satelliteService.caricaSingoloElemento(idSatellite));
+		return "satellite/modifica";
+	}
+
+	@PostMapping("/salvamodifica")
+	public String salvamodifica(@ModelAttribute("modifica_satellite_attr") Satellite satellite, ModelMap model,
+			RedirectAttributes redirectAttrs, BindingResult result) {
+
+		if (result.hasErrors())
+			return "satellite/modifica";
+
+		satelliteService.aggiorna(satellite);
+
+		redirectAttrs.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
+		return "redirect:/satellite";
+
+	}
+
 }

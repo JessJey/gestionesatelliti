@@ -47,10 +47,10 @@
 				            <table class='table table-striped ' >
 				                <thead>
 				                    <tr>
-			                         	<th>Nome</th>
-				                        <th>Cognome</th>
-				                        <th>Matricola</th>
-				                        <th>Data di Nascita</th>
+			                         	<th>Denominazione</th>
+				                        <th>Codice</th>
+				                        <th>Data di Lancio</th>
+				                        <th>Data di Rientro</th>
 				                        <th>Stato</th>
 				                        <th>Azioni</th>
 				                    </tr>
@@ -61,10 +61,11 @@
 											<td>${satelliteItem.denominazione }</td>
 											<td>${satelliteItem.codice }</td>
 											<td><fmt:formatDate type = "date" value = "${satelliteItem.dataLancio }" /></td>
+											<td><fmt:formatDate type = "date" value = "${satelliteItem.dataRientro }" /></td>
 											<td>${satelliteItem.stato }</td>
 											<td>
-												<a class="btn  btn-sm btn-outline-secondary" href="${pageContext.request.contextPath}/satellite/show/${impiegatoItem.id }">Visualizza</a>
-												<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="laservletpermodificare">Edit</a>
+												<a class="btn  btn-sm btn-outline-secondary" href="${pageContext.request.contextPath}/satellite/show/${satelliteItem.id }">Visualizza</a>
+												<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="${pageContext.request.contextPath}/satellite/modifica/${satelliteItem.id }">Edit</a>
 												<a class="btn btn-outline-danger btn-sm" href="laservletperrimuovere">Delete</a>
 											</td>
 										</tr>

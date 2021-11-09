@@ -26,7 +26,7 @@ public class Satellite {
 	@Column(name = "denominazione")
 	private String denominazione;
 
-	@NotBlank(message = "{codice.notnull}")
+	@NotNull(message = "{codice.notnull}")
 	@Column(name = "codice")
 	private Integer codice;
 
